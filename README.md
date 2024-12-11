@@ -1,1 +1,2 @@
-# lox-interpreter
+# glox 
+A lox interpreter written in golang.
