@@ -84,6 +84,8 @@ func (s *Scanner) scanToken() {
 	default:
 		if isDigit(currentByte) {
 			s.number()
+		} else if isAlpha(currentByte) {
+			s.identifier()
 		} else {
 			s.lox.error(s.line, "Unexpected character")
 			// TODO: not have each invalid character be its own error
@@ -184,4 +186,47 @@ func (s *Scanner) peekNext() byte {
 		return '\x00'
 	}
 	return s.source[s.current+1]
+}
+
+func isAlpha(b byte) bool {
+	return b == '_' ||
+		(b >= 'a' && b <= 'z') ||
+		(b >= 'A' && b <= 'Z')
+}
+
+func isAlphaNumeric(b byte) bool {
+	return isAlpha(b) || isDigit(b)
+}
+
+func (s *Scanner) identifier() {
+	for isAlphaNumeric(s.peek()) {
+		s.advance()
+	}
+	text := s.source[s.start:s.current]
+	tokenType, ok := keywords[text]
+	if !ok {
+		tokenType = IDENTIFIER
+		// TODO: ? add IDENTIFIER text value to token
+	}
+
+	s.addToken(tokenType, nil)
+}
+
+var keywords = map[string]TokenType{
+	"and":   AND,
+	"class": CLASS,
+	"else":  ELSE,
+	"false": FALSE,
+	"for":   FOR,
+	//"fun":    FUN,
+	"if":     IF,
+	"nil":    NIL,
+	"or":     OR,
+	"print":  PRINT,
+	"return": RETURN,
+	"super":  SUPER,
+	"this":   THIS,
+	"true":   TRUE,
+	"var":    VAR,
+	"while":  WHILE,
 }
