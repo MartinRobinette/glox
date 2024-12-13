@@ -9,11 +9,13 @@ type Token struct {
 	line    int
 }
 
-func (t *Token) NewToken(typ TokenType, lexeme string, literal interface{}, line int) {
-	t.typ = typ
-	t.lexeme = lexeme
-	t.literal = literal
-	t.line = line
+func NewToken(typ TokenType, lexeme string, literal interface{}, line int) *Token {
+	return &Token{
+		typ:     typ,
+		lexeme:  lexeme,
+		literal: literal,
+		line:    line,
+	}
 }
 
 func (t *Token) ToString() string {
