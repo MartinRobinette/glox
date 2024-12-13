@@ -1,2 +1,2 @@
 run:
-	go run src/Lox.go
+	go run src/*
