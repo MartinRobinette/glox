@@ -50,3 +50,52 @@ const (
 
 	EOF
 )
+
+// Map to store TokenType-to-string mappings
+var tokenTypeStrings = map[TokenType]string{
+	LEFT_PAREN:    "LEFT_PAREN",
+	RIGHT_PAREN:   "RIGHT_PAREN",
+	LEFT_BRACE:    "LEFT_BRACE",
+	RIGHT_BRACE:   "RIGHT_BRACE",
+	COMMA:         "COMMA",
+	DOT:           "DOT",
+	MINUS:         "MINUS",
+	PLUS:          "PLUS",
+	SEMICOLON:     "SEMICOLON",
+	SLASH:         "SLASH",
+	STAR:          "STAR",
+	BANG:          "BANG",
+	BANG_EQUAL:    "BANG_EQUAL",
+	EQUAL:         "EQUAL",
+	EQUAL_EQUAL:   "EQUAL_EQUAL",
+	GREATER:       "GREATER",
+	GREATER_EQUAL: "GREATER_EQUAL",
+	LESS:          "LESS",
+	LESS_EQUAL:    "LESS_EQUAL",
+	IDENTIFIER:    "IDENTIFIER",
+	STRING:        "STRING",
+	NUMBER:        "NUMBER",
+	AND:           "AND",
+	CLASS:         "CLASS",
+	ELSE:          "ELSE",
+	FALSE:         "FALSE",
+	FOR:           "FOR",
+	IF:            "IF",
+	NIL:           "NIL",
+	OR:            "OR",
+	PRINT:         "PRINT",
+	RETURN:        "RETURN",
+	SUPER:         "SUPER",
+	THIS:          "THIS",
+	TRUE:          "TRUE",
+	VAR:           "VAR",
+	WHILE:         "WHILE",
+	EOF:           "EOF",
+}
+
+func (t *TokenType) ToString() string {
+	if name, ok := tokenTypeStrings[*t]; ok {
+		return name
+	}
+	return "UNKNOWN" // should never occur
+}
