@@ -99,3 +99,53 @@ func (t *TokenType) ToString() string {
 	}
 	return "UNKNOWN" // should never occur
 }
+
+// possible change, removes the need for a seperate to string funstion, does increase the size of each token
+// const (
+// 	// Single Cahracter tokens
+// 	LEFT_PAREN  TokenType = "("
+// 	RIGHT_PAREN TokenType = ")"
+// 	LEFT_BRACE  TokenType = "}"
+// 	RIGHT_BRACE TokenType = ""
+// 	COMMA       TokenType = ","
+// 	DOT         TokenType = "."
+// 	MINUS       TokenType = "-"
+// 	PLUS        TokenType = "+"
+// 	SEMICOLON   TokenType = ";"
+// 	SLASH       TokenType = "/"
+// 	STAR        TokenType = "*"
+//
+// 	// One or two character tokens
+// 	BANG          TokenType = "!"
+// 	BANG_EQUAL    TokenType = "!="
+// 	EQUAL         TokenType = "="
+// 	EQUAL_EQUAL   TokenType = "=="
+// 	GREATER       TokenType = ">"
+// 	GREATER_EQUAL TokenType = ">="
+// 	LESS          TokenType = "<"
+// 	LESS_EQUAL    TokenType = "<="
+//
+// 	// Literals
+// 	IDENTIFIER TokenType = "IDENT"
+// 	STRING     TokenType = "STRING"
+// 	NUMBER     TokenType = "NUMBER"
+//
+// 	// Keywords
+// 	AND    TokenType = "AND"
+// 	CLASS  TokenType = "CLASS"
+// 	ELSE   TokenType = "ELSE"
+// 	FALSE  TokenType = "FALSE"
+// 	FOR    TokenType = "FOR"
+// 	IF     TokenType = "IF"
+// 	NIL    TokenType = "NIL"
+// 	OR     TokenType = "OR"
+// 	PRINT  TokenType = "PRINT"
+// 	RETURN TokenType = "RETURN"
+// 	SUPER  TokenType = "SUPER"
+// 	THIS   TokenType = "THIS"
+// 	TRUE   TokenType = "TRUE"
+// 	VAR    TokenType = "VAR"
+// 	WHILE  TokenType = "WHILE"
+//
+// 	EOF TokenType = "EOF"
+// )
