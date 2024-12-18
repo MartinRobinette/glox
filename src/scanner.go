@@ -154,7 +154,7 @@ func (s *Scanner) string() {
 }
 
 func isDigit(b byte) bool {
-	return b >= '0' && b <= '9'
+	return '0' <= b && b <= '9'
 }
 
 func (s *Scanner) number() {
@@ -190,8 +190,8 @@ func (s *Scanner) peekNext() byte {
 
 func isAlpha(b byte) bool {
 	return b == '_' ||
-		(b >= 'a' && b <= 'z') ||
-		(b >= 'A' && b <= 'Z')
+		('a' <= b && b <= 'z') ||
+		('A' <= b && b <= 'Z')
 }
 
 func isAlphaNumeric(b byte) bool {
